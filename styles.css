@@ -21,11 +21,25 @@ body {
 .container{
     overflow: hidden;
 }
-.content{
-	width: 900px;
-	text-align: left;
+.container1{
+	max-width: 1320px;
 	margin: 0 auto;
-	padding: 1rem 0 1.5rem;
+	padding: 1rem 10px 1.5rem;
+	text-align: center;
+}
+.container1 p {
+	
+	position: relative;
+}
+.content{
+	font-size: 1rem;
+	
+	text-align: left;
+	flex-basis: 70%;
+	margin: 0 auto;
+	padding: 1rem 0 1.5rem 0;
+	position:relative;
+	
 }
 .header{
 	font-size: 2em;
@@ -102,7 +116,7 @@ body {
 }
 
 .profile__info h1 {
-	font-size: 40px;
+	font-size: 2.5em;
 	display: inline-block;
 	font-family: 'Source Sans Pro', sans-serif;
 	font-weight: 600;
@@ -133,7 +147,7 @@ body {
 	height:100%;
 	background-color: #caf0f8;
 	color: black;
-	
+	padding: 0 10% 0 10%;
 }
 
 
@@ -144,11 +158,8 @@ body {
 	background-color: #90e0ef;
 	color: black;
 	text-align: center;
-	
+	padding: 0 10% 0 10%;;
 }
-
-
-
 
 #Projects{
 	flex-basis: 70%;
@@ -176,16 +187,17 @@ body {
 	width: 500px;
 	padding: 0 5px;
 	
+	
 }
-
 
 
 #Contacts{
 	flex-basis: 70%;
 	width: 100%;
-	height:100%;
+	height:70%;
 	background-color: blanchedalmond;
 	color:black;
+	padding: 0 10% 0 10%;
 		
 }
 
@@ -238,14 +250,14 @@ body {
 
 
  }
- #slider input[type=radio] {
+#slider input[type=radio] {
 	display: none;
  }
- #slider label {
+#slider label {
 	cursor:pointer;
 	text-decoration: none;
  }
- #slides {
+#slides {
 	padding: 10px;
 	border: 3px solid #ccc;
 	background: #fff;
@@ -254,24 +266,24 @@ body {
 
 
  }
- #overflow {
+#overflow {
 	width: 100%;
 	overflow: hidden;
  }
- #slide1:checked ~ #slides .inner {
+#slide1:checked ~ #slides .inner {
 	margin-left: 0;
  }
- #slide2:checked ~ #slides .inner {
+#slide2:checked ~ #slides .inner {
 	margin-left: -100%;
 	
  }
- #slide3:checked ~ #slides .inner {
+#slide3:checked ~ #slides .inner {
 	margin-left: -200%;
  }
- #slide4:checked ~ #slides .inner {
+#slide4:checked ~ #slides .inner {
 	margin-left: -300%;
  }
- #slides .inner {
+#slides .inner {
 	transition: margin-left 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
 	width: 400%;
 	line-height: 0;
@@ -279,63 +291,65 @@ body {
 
 	
  }
- #slides .slide {
+#slides .slide {
 	width: 25%;
 	height: 100%;
 	float:left;
 	display: flex;
 	align-items: center;
+	justify-content: center;
 	color: #fff;
  }
- #slides .slide_1 {
+#slides .slide_1 {
 	background-image:url(./Images/ATM.png);
 	background-size: cover;
-	text-align: left;
+	background-repeat: no-repeat;
+	background-position: center;
 	
  }
- #slides .slide_2 {
+#slides .slide_2 {
 	display: flex;
 	background-image:url(./Images/TodoList.jpg),url(./Images/TodoList2.png),url(./Images/TodoList3.png);
 	background-position: right ,center, left ;
 	background-repeat: no-repeat;
-	background-size: contain;
+	background-size:auto;
 	
  }
- #slides .slide_3 {
+#slides .slide_3 {
 	background-image:url(./Images/Huffman.png);
 	background-size: cover;
  }
- #slides .slide_4 {
+#slides .slide_4 {
 	background-image:url(./Images/bot.png);
 	background-size: initial;
 	background-repeat: no-repeat;
-
+	background-size:cover;
  }
 /** #slides .p{
 	text-align: bottom left;
 **/
- #controls {
+#controls {
 	margin: -230px 0 0 0;
 	width: 100%;
 	height: 50px;
 	z-index: 3;
 	position: relative;
  }
- #controls label {
+#controls label {
 	transition: opacity 0.2s ease-out;
 	display: none;
 	width: 50px;
 	height: 50px;
 	opacity: .4;
  }
- #controls label:hover {
+#controls label:hover {
 	opacity: 1;
  }
- #bullets {
+#bullets {
 	margin: 25px 0 0;
 	text-align: center;
  }
- #bullets label {
+#bullets label {
 	display: inline-block;
 	width: 10px;
 	height: 10px;
@@ -343,14 +357,14 @@ body {
 	background: #ccc;
 	margin: 0 10px;
  }
- #slide1:checked ~ #bullets label:nth-child(1),
- #slide2:checked ~ #bullets label:nth-child(2),
- #slide3:checked ~ #bullets label:nth-child(3),
- #slide4:checked ~ #bullets label:nth-child(4) {
+#slide1:checked ~ #bullets label:nth-child(1),
+#slide2:checked ~ #bullets label:nth-child(2),
+#slide3:checked ~ #bullets label:nth-child(3),
+#slide4:checked ~ #bullets label:nth-child(4) {
 	background: #444;
  }
 
- @media screen and (max-width: 900px) {
+@media screen and (max-width: 900px) {
 	#slide1:checked ~ #controls label:nth-child(2),
 	#slide2:checked ~ #controls label:nth-child(3),
 	#slide3:checked ~ #controls label:nth-child(4),
@@ -366,7 +380,7 @@ body {
 	   margin: 0 auto;
 	}
  }
- @media screen and (max-height: 600px) {
+@media screen and (max-height: 600px) {
 	#slide1:checked ~ #controls label:nth-child(2),
 	#slide2:checked ~ #controls label:nth-child(3),
 	#slide3:checked ~ #controls label:nth-child(4),
@@ -387,6 +401,10 @@ body {
 	#Projects{
 		height: 70%;
 	}
+	#Skills{
+		height: 70%;
+	}
+
 	.header{
 		font-size: 1em;
 		font-weight: 200;
@@ -394,22 +412,47 @@ body {
 	}
  }
 
- @media screen and (min-width:600px){
+@media screen and (min-width:625px){
 	 .nav a{
 		 padding-right: 1.2rem;
 		 padding-left: 1.2rem;
-	 }
-	 
+	 }	 
  }
- @media screen and (max-width:600px){
+ 
+
+@media screen and (max-width:500px){
 	.content{
 		font-size: 1em;
 	}
 	.header{
 		font-size: 1em;
-		font-weight: 200;
-		padding-top: 1%;
+		padding-top: 3%;
 		text-align: center;
+	}
+	.profile__info h1{
+		font-size: 2em;
+	}
+	#Skills{
+		height: 50%;
 	}
 }
 
+@media screen and (max-width:664px){
+	#slides .slide_2 {
+		background-image:url(./Images/TodoList3.png);
+		background-position: center;
+		background-size:contain;
+	 }
+}
+
+
+@media screen and (min-width:665px) and (max-width:890px){
+	#slides .slide_2 {
+		justify-content: center;
+		background-image:url(./Images/TodoList.jpg),url(./Images/TodoList3.png);
+		background-position: right,left;
+		background-repeat: no-repeat;
+		background-size:contain;
+		padding:5%
+	 }
+}
