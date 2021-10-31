@@ -1,50 +1,41 @@
 html, body {
 	height: 100%;
+	
 }
 
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	
+
 }
 
 body {
-	line-height: 1.6;
+	line-height: 1.4;
 	display: flexbox;
-	justify-content: center;
 	font-family: 'Source Code Pro', monospace;
 	color: #fff;
 	text-align: center;
-	overflow-x: hidden;
+
+	
 }
 .container{
     overflow: hidden;
 }
-.container1{
-	max-width: 1320px;
-	margin: 0 auto;
-	padding: 1rem 10px 1.5rem;
-	text-align: center;
-}
-.container1 p {
-	
-	position: relative;
+.content_wrap{
+	padding-top:5%;
 }
 .content{
 	font-size: 1rem;
-	
 	text-align: left;
 	flex-basis: 70%;
-	margin: 0 auto;
-	padding: 1rem 0 1.5rem 0;
+	padding: 1rem 0 6rem 0;
 	position:relative;
 	
 }
 .header{
 	font-size: 2em;
 	font-weight: 200;
-	padding-top: 3%;
 	text-align: center;
 }
 /*Navigation Bar*/
@@ -55,7 +46,9 @@ body {
 	z-index: 10000;
     position: fixed;
 	width: 100%;
+
 	overflow: hidden;
+	font-size: 2em;
 }
  
 .nav ul{
@@ -83,11 +76,10 @@ body {
 
 #Home {
 	width: 100%;
-	height:100%;
 	margin: 0 auto;
+	padding-bottom: 5%;
 	justify-content: space-between;
 	align-items: center;
-	height: 970px;
 	overflow: hidden;
 	background: linear-gradient(90deg, rgba(84, 150, 255, .78), rgba(135, 57, 229, .85));
 }
@@ -103,7 +95,7 @@ body {
 	text-align: center;
     padding-top: 10%;
     position:relative;
-    padding-bottom: 20%;
+
 }
 
 .profile__photo {
@@ -137,72 +129,10 @@ body {
 }
 
 .profile__info p {
-	
 	position: relative;
 }
 
-#About{
-	flex-basis: 70%;
-	width: 100%;
-	height:100%;
-	background-color: #caf0f8;
-	color: black;
-	padding: 0 10% 0 10%;
-}
-
-
-#Skills{
-	flex-basis: 70%;
-	width: 100%;
-	height:60%;
-	background-color: #90e0ef;
-	color: black;
-	text-align: center;
-	padding: 0 10% 0 10%;;
-}
-
-#Projects{
-	flex-basis: 70%;
-	width: 100%;
-	height:100%;
-	background-color: #0077b6;
-	color: white;
-	
-}
-
-.projects{
-	text-align: left;
-	margin: 0 auto;
-	padding: 1rem 0 1.5rem;
-	display: flexbox;
-}
-.projects_info {
-	display: flex;
-	margin-top: 1rem;
-	list-style: none;
-	padding: 10px;
-}
-
-.projects_info li {
-	width: 500px;
-	padding: 0 5px;
-	
-	
-}
-
-
-#Contacts{
-	flex-basis: 70%;
-	width: 100%;
-	height:70%;
-	background-color: blanchedalmond;
-	color:black;
-	padding: 0 10% 0 10%;
-		
-}
-
 .contact {
-	display: inline-block;
 	background-color: #fff;
 	padding: 8px 2rem;
 	text-decoration: none;
@@ -224,14 +154,14 @@ body {
 }
 
 .social__links li {
-	display: block;
+	display: inline-block;
 	
 	font-size: 25px;
 }
 
 .social__links a {
 	font-size: 14px;
-	color: black;
+	color: #fff;
 	padding-left: 10px;
 	text-decoration: none;
 }
@@ -240,16 +170,43 @@ body {
 	text-decoration: underline;
 }
 
+#About{
+	flex-basis: 70%;
+	width: 100%;
+	
+
+	background-color: #caf0f8;
+	color: black;
+	padding: 5% 10% 0 10%;
+}
+
+
+#Skills{
+	flex-basis: 70%;
+	width: 100%;
+	
+	background-color: #90e0ef;
+	color: black;
+	text-align: center;
+	padding: 0 10% 0 10%;;
+}
+
+#Projects{
+	flex-basis: 70%;
+	width: 100%;
+	background-color: #0077b6;
+	color: white;
+	padding-bottom: 5%;
+	
+}
+
 /*Sliders*/
 #slider {
 	margin: 0 auto;
 	width: 50em;
 	max-width: 100%;
 	text-align: center;
-	height: 50em;
-
-
- }
+}
 #slider input[type=radio] {
 	display: none;
  }
@@ -325,15 +282,14 @@ body {
 	background-repeat: no-repeat;
 	background-size:cover;
  }
-/** #slides .p{
-	text-align: bottom left;
-**/
+
 #controls {
-	margin: -230px 0 0 0;
+	margin: -230px 0 0x 0;
 	width: 100%;
 	height: 50px;
 	z-index: 3;
 	position: relative;
+	padding-bottom: 10%;
  }
 #controls label {
 	transition: opacity 0.2s ease-out;
@@ -389,7 +345,7 @@ body {
 	#slide2:checked ~ #controls label:nth-last-child(3),
 	#slide3:checked ~ #controls label:nth-last-child(4),
 	#slide4:checked ~ #controls label:nth-last-child(1) {
-	   margin: auto;
+	   margin: 0;
 	}
 	#slides .inner{
 	   max-height: 200px;
@@ -412,28 +368,34 @@ body {
 	}
  }
 
-@media screen and (min-width:625px){
-	 .nav a{
-		 padding-right: 1.2rem;
-		 padding-left: 1.2rem;
-	 }	 
- }
+
  
 
 @media screen and (max-width:500px){
 	.content{
 		font-size: 1em;
 	}
+	.navbar{
+		font-size: 0.1em;
+	}
 	.header{
 		font-size: 1em;
 		padding-top: 3%;
 		text-align: center;
 	}
+	.profile__photo{
+		width: 130px;
+		height: 130px;
+	}
 	.profile__info h1{
-		font-size: 2em;
+		font-size: 1.3em;
 	}
 	#Skills{
-		height: 50%;
+		height: 70%;
+	}
+	#About{
+		height: 120%;
+		align-content: center;
 	}
 }
 
@@ -444,8 +406,7 @@ body {
 		background-size:contain;
 	 }
 }
-
-
+/* Adjust slide 2 for medium size screen **/
 @media screen and (min-width:665px) and (max-width:890px){
 	#slides .slide_2 {
 		justify-content: center;
