@@ -264,7 +264,7 @@ body {
 	background-image:url(./Images/TodoList.jpg),url(./Images/TodoList2.png),url(./Images/TodoList3.png);
 	background-position: right ,center, left ;
 	background-repeat: no-repeat;
-	background-size:auto;
+	background-size:contain;
 	
  }
 #slides .slide_3 {
@@ -395,21 +395,13 @@ body {
 	}
 }
 
-@media screen and (max-width:664px){
+
+/* Adjust slide 2 for small screen **/
+@media screen and (max-width:370px){
 	#slides .slide_2 {
-		background-image:url(./Images/TodoList3.png);
-		background-position: center;
-		background-size:contain;
-	 }
-}
-/* Adjust slide 2 for medium size screen **/
-@media screen and (min-width:665px) and (max-width:890px){
-	#slides .slide_2 {
-		justify-content: center;
 		background-image:url(./Images/TodoList.jpg),url(./Images/TodoList3.png);
 		background-position: right,left;
 		background-repeat: no-repeat;
 		background-size:contain;
-		padding:5%
 	 }
 }
