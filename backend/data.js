@@ -5,7 +5,7 @@ const data = {
             name: "Dubu",
             category: "Shirts",
             image: "/images/1.jpg",
-            price: 120,
+            price: 140,
             countInStock: 12,
             brand: "Twice Dahyun",
             rating: 1.5,
