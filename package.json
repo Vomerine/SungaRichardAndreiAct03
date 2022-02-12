@@ -1,5 +1,28 @@
 {
   "dependencies": {
+    "express": "^4.17.2",
     "react-router-dom": "^5.2.0"
+  },
+  "name": "project",
+  "type": "module",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --watch backend --exec node --experimental-modules backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vomerine/SungaRichardAndreiAct03.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vomerine/SungaRichardAndreiAct03/issues"
+  },
+  "homepage": "https://github.com/Vomerine/SungaRichardAndreiAct03#readme",
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
   }
 }
