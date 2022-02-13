@@ -62,6 +62,9 @@ li{
   margin-top:1rem;
 }
 
+input,
+select,
+textarea,
 button{
   padding: 1 rem;
   border-radius: 0.5rem;
