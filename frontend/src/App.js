@@ -1,9 +1,16 @@
 
-import {BrowserRouter, Route} from 'react-router-dom'
+import {BrowserRouter, Route, Link} from 'react-router-dom'
 import HomeScreen from "./screens/HomeScreen"
 import ProductScreen from './screens/ProductScreen'
 import CartScreen from './screens/CartScreen';
+import { useSelector } from 'react-redux';
+
 function App() {
+
+  //Adding of badge
+  const cart = useSelector((state) => state.cart);
+  const { cartItems } = cart;
+
   return (
     <BrowserRouter>
       <div className = "grid-container">
@@ -13,7 +20,12 @@ function App() {
             </div>
 
             <div>
-                <a href = "/cart">Cart</a>
+                <Link to="/cart">
+                Cart
+                {cartItems.length > 0 && (
+                  <span className="badge">{cartItems.length}</span>
+                )}
+                </Link>
                 <a href = "/signin">Sign In</a>
             </div>
         </header>
