@@ -11,10 +11,54 @@ body{
   font-family:Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgba(187, 184, 184, 0.315);
 }
 #root{
   height: 100%;
 }
+
+.ProductScreen{
+  margin: 0 5rem 0 5rem;
+  background-color: white;
+  padding: 5rem;
+}
+
+.name{
+  font-size: 3rem;
+  font-weight: bold;
+  padding: 1rem  0 0 1.5rem;
+}
+
+.content{
+  padding: 2rem;
+  min-width: 40rem;
+}
+
+.CartScreen{
+  margin: 0 5rem 0 5rem;
+  background-color: white;
+  padding: 3rem;
+}
+
+.label{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.checkout{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.checkout button{
+  margin: 1rem;
+  height: 4rem;
+}
+
 /*layout*/
 .grid-container{
   display: grid;
@@ -29,7 +73,8 @@ body{
 
 header{
   grid-area: header;
-  background-color: teal;
+  background-color: #203040;
+  padding:1rem;
 }
 
 main{
@@ -48,9 +93,7 @@ a{
   text-decoration: none;
 }
 
-a:hover{
-  color: tomato;
-}
+
 
 ul{
   padding: 0;
@@ -85,7 +128,7 @@ button:hover{
 }
 
 button.primary{
-  background-color: #f0c040;
+  background-color: rgb(248, 213, 11);
 }
 
 button.block{
@@ -95,11 +138,16 @@ button.block{
 header a{
   color: whitesmoke;
   padding: 1rem;
+
+}
+
+header a:hover{
+  border: 0.1rem white solid;
 }
 
 a.brand{
   color: whitesmoke;
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: bold;
 }
 
@@ -107,7 +155,7 @@ a.brand{
   background-color: #f02020;
   color: #ffffff;
   border-radius: 50%;
-  padding: 0.2rem 0.7rem;
+  padding: 0 0.7rem;
   font-size: 1.4rem;
   margin-left: 0.2rem;
 }
@@ -148,7 +196,7 @@ img{
 }
 
 img.small {
-  max-width: 5rem;
+  max-width: 10rem;
   width: 100%;
 }
 
@@ -158,8 +206,8 @@ img.medium{
 }
 
 img.large{
-  height: 50rem;
-  width: 50rem;
+  height: 40rem;
+  width: 40rem;
 }
 
 .card{
@@ -167,10 +215,19 @@ img.large{
   background-color: #f8f8f8;
   border-radius: 0.5rem;
   margin: 1rem;
+  
+}
+
+.wrapper{
+  transition: margin 0.2s ease-in-out;
+}
+.card:hover {
+  margin-top: -2;
 }
 
 .card-body{
   padding: 1rem;
+  width: 90%;
 }
 
 .card-body > *{
@@ -189,6 +246,15 @@ img.large{
   color: #404040
 }
 
+.loading{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin: -50px 0px 0px -50px;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+}
 .success{
   color: green;
 }

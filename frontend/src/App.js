@@ -21,7 +21,7 @@ function App() {
 
             <div>
                 <Link to="/cart">
-                Cart
+                <i className="fa fa-shopping-cart fa-lg" aria-hidden="true"></i>
                 {cartItems.length > 0 && (
                   <span className="badge">{cartItems.length}</span>
                 )}
@@ -34,7 +34,6 @@ function App() {
           <Route path="/cart/:id?" component={CartScreen}></Route>
           <Route path = "/product/:id" component = {ProductScreen}></Route>
           <Route path = "/" component = {HomeScreen}exact></Route>
-            
         </main>
 
         <footer className = "row center">

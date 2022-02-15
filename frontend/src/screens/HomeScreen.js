@@ -18,7 +18,7 @@ export default function HomeScreen(){
             {loading ? (<LoadingBox></LoadingBox>) // Show loading
             :error? (<MessageBox variant = "error">{error}</MessageBox>) // Show error message
             : ( // ShowProducts
-            <div className="row row-cols-1 row-cols-md-4 g-4 m-5">
+            <div className="row center row-cols-1 row-cols-md-4 g-4 m-5">
             {
                 products.map(product => (
                 <Product key = {product._id} product={product}></Product>

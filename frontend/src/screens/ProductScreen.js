@@ -22,7 +22,7 @@ export default function ProductScreen(props) {
     };
     
     return (
-        <div>
+        <div className = "ProductScreen">
             {loading ? (<LoadingBox></LoadingBox>) // Show loading
             :error? (<MessageBox variant = "error">{error}</MessageBox>) // Show error message
             : (<div>
@@ -32,17 +32,19 @@ export default function ProductScreen(props) {
                         <img className="large" src={product.image} alt={product.name}></img>
                     </div>
 
-                    <div className="col-1">
-                        <ul>
-                            <li><h1>{product.name}</h1></li>
-                            <li><Rating rating={product.rating} numReview={product.numReviews}></Rating></li>
-                            <li><h1>{product.brand}</h1></li>
-                            <li>Price: ${product.price}</li>
-                            <li>Description:<p>{product.description}</p></li>
-                        </ul>
+                    <div className="col-2">
+                        <div className = "name">{product.name}</div>
+                        <div className = "content">
+                            <ul>
+                                <li><Rating rating={product.rating} numReview={product.numReviews}></Rating></li>
+                                <li>Brand: {product.brand}</li>
+                                <li>Price: ${product.price}</li>
+                                <li>Description:<p>{product.description}</p></li>
+                            </ul>
+                        </div>
                     </div>
 
-                    <div className = "col-1">
+                    <div className="col-1">
                         <div className = "card card-body">
                             <ul>
                                 <li>
