@@ -20,7 +20,12 @@ body{
 .ProductScreen{
   margin: 0 5rem 0 5rem;
   background-color: white;
-  padding: 5rem;
+  padding: 1rem 3rem 3rem 3rem;
+}
+
+.back{
+  font-size: 2rem;
+  margin-bottom: 2rem;
 }
 
 .name{
@@ -188,10 +193,8 @@ a.brand{
 }
 
 img{
-  float: left;
   width:  150px;
   height: 150px;
-  object-fit: cover;
   border-radius: 0.5rem;
 }
 
@@ -201,8 +204,9 @@ img.small {
 }
 
 img.medium{
-  max-width: 29rem;
+  float: left;
   width: 100%;
+  background-size: contain;
 }
 
 img.large{
@@ -228,6 +232,7 @@ img.large{
 .card-body{
   padding: 1rem;
   width: 90%;
+  width: 20rem;
 }
 
 .card-body > *{
@@ -282,6 +287,10 @@ img.large{
 .form {
   max-width: 60rem;
   margin: 0 auto;
+}
+
+.form input{
+  min-height: 4rem;
 }
 
 .form > div {

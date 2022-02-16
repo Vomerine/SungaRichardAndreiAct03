@@ -26,7 +26,12 @@ export default function ProductScreen(props) {
             {loading ? (<LoadingBox></LoadingBox>) // Show loading
             :error? (<MessageBox variant = "error">{error}</MessageBox>) // Show error message
             : (<div>
-                <Link to = "/">Back to result</Link>
+                <div className = "back">
+                <Link to = "/" className = "back">
+                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                    Back to homepage
+                </Link>
+                </div>
                 <div className="row top">
                     <div className="col-2">
                         <img className="large" src={product.image} alt={product.name}></img>

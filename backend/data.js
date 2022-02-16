@@ -3,14 +3,14 @@ import bcrypt from 'bcryptjs';
 const data = {
     users: [
         {
-          name: 'mabuX',
+          name: 'Richard',
           email: 'admin@example.com',
           password: bcrypt.hashSync('1234', 8),
           isAdmin: true,
         },
         {
            //customer
-          name: 'John',
+          name: 'Andrei',
           email: 'user@example.com',
           password: bcrypt.hashSync('1234', 8),
           isAdmin: false,
@@ -19,75 +19,75 @@ const data = {
     products:[
         {
 
-            name: "Dubu",
-            category: "Shirts",
+            name: "CPU",
+            category: "Computer Parts",
             image: "/images/1.jpg",
             price: 140,
             countInStock: 12,
-            brand: "Twice Dahyun",
+            brand: "Ryzen",
             rating: 1.5,
             numReviews: 10,
-            description: "Goods"
+            description: "Item model number: SA400S37/240G"
         },
         {
 
-            name: "Beanpole",
-            category: "Shirts",
+            name: "Keyboard",
+            category: "Computer Parts",
             image: "/images/2.jpg",
             price: 120,
             countInStock: 12,
-            brand: "Twice Dahyun",
+            brand: "Rakk",
             rating: 4.5,
             numReviews: 10,
-            description: "Goods na Goods"
+            description: "Ergonomic design, feel comfortable, reduce hand fatigue."
         },
         {
 
-            name: "Portrait",
-            category: "Shirts",
+            name: "Monitor",
+            category: "Computer Parts",
             image: "/images/3.jpg",
             price: 120,
             countInStock: 12,
-            brand: "Twice Dahyun",
+            brand: "Samsung",
             rating: 4.5,
             numReviews: 10,
-            description: "Goods na Goods na Goods"
+            description: "Power Voltage: DC 5V"
         },
         {
 
-            name: "Blep",
-            category: "Shirts",
+            name: "Mouse",
+            category: "Computer Parts",
             image: "/images/4.jpg",
             price: 120,
             countInStock: 12,
-            brand: "Twice",
+            brand: "Logitech",
             rating: 4.5,
             numReviews: 10,
-            description: "Goods na Goods na Goods na Goods"
+            description: "Mouse Cable Length: 122cm"
         },
         {
 
-            name: "Megane",
-            category: "Shirts",
+            name: "SSD",
+            category: "Computer Parts",
             image: "/images/5.jpg",
             price: 120,
             countInStock: 12,
-            brand: "Twice Dahyun",
+            brand: "Samsung",
             rating: 4.5,
             numReviews: 10,
-            description: "Goods na Goods na Goods na Goods na Goods"
+            description: "Hard Drive Interface: Serial ATA"
         },
         {
 
-            name: "Pout",
-            category: "Shirts",
+            name: "RAM",
+            category: "Computer Parts",
             image: "/images/6.jpg",
             price: 120,
             countInStock: 12,
-            brand: "Twice Dahyun",
+            brand: "Kingston",
             rating: 4.5,
             numReviews: 10,
-            description: "Goods na Goods na Goods na Goods na Goods na Goods"
+            description: "Flash Memory Size: 240 GB"
         },
       
     ]

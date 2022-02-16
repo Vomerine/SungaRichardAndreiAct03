@@ -6,6 +6,7 @@ import CartScreen from './screens/CartScreen';
 import { useDispatch, useSelector } from 'react-redux';
 import SigninScreen from './screens/SigninScreen';
 import { signout } from './actions/userActions';
+import RegisterScreen from './screens/RegisterScreen';
 
 function App() {
 
@@ -25,7 +26,7 @@ function App() {
       <div className = "grid-container">
         <header className = "row">
             <div>
-                <a className = "brand" href = "/">MARKet ni MARK</a>
+                <a className = "brand" href = "/">TECHTAIL</a>
             </div>
 
             <div>
@@ -59,6 +60,7 @@ function App() {
           <Route path = "/cart/:id?" component={CartScreen}></Route>
           <Route path = "/product/:id" component = {ProductScreen}></Route>
           <Route path = "/signin" component={SigninScreen}></Route>
+          <Route path = "/register" component={RegisterScreen}></Route>
           <Route path = "/" component = {HomeScreen}exact></Route>
         </main>
 
