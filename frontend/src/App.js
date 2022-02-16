@@ -4,6 +4,7 @@ import HomeScreen from "./screens/HomeScreen"
 import ProductScreen from './screens/ProductScreen'
 import CartScreen from './screens/CartScreen';
 import { useSelector } from 'react-redux';
+import SigninScreen from './screens/SigninScreen';
 
 function App() {
 
@@ -26,13 +27,14 @@ function App() {
                   <span className="badge">{cartItems.length}</span>
                 )}
                 </Link>
-                <a href = "/signin">Sign In</a>
+                <Link to="/signin">Sign In</Link>
             </div>
         </header>
 
         <main>
           <Route path="/cart/:id?" component={CartScreen}></Route>
           <Route path = "/product/:id" component = {ProductScreen}></Route>
+          <Route path="/signin" component={SigninScreen}></Route>
           <Route path = "/" component = {HomeScreen}exact></Route>
         </main>
 
