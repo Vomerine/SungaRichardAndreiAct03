@@ -14,7 +14,7 @@ export const listProducts = () => async(dispatch)=>{
 
     })
     try {
-        const {data} = await axios.get('./api/products');
+        const {data} = await axios.get('/api/products');
         dispatch({type:PRODUCT_LIST_SUCCESS, payload:data});
     }catch (error) {
         dispatch({type:PRODUCT_LIST_FAIL, payload:error.message});
@@ -27,7 +27,8 @@ export const detailsProduct = (productId) => async(dispatch)=>{
     });
 
     try {
-        const {data} = await axios.get(`./api/products/${productId}`);
+        // Used "../api" to ignore the /product at the link
+        const {data} = await axios.get(`/api/products/${productId}`); 
         dispatch({type:PRODUCT_DETAILS_SUCCESS, payload:data});
     }catch (error) {
         dispatch({type:PRODUCT_DETAILS_FAIL, 
