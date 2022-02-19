@@ -1,12 +1,12 @@
 import React, {  useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { signin } from '../actions/userActions';
+import { register } from '../actions/userActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 
 export default function SigninScreen(props) {
-  //const [username, setUsername] = useState('');
+  const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -21,7 +21,7 @@ export default function SigninScreen(props) {
   const submitHandler = (e) => {
     e.preventDefault();
     // TODO: sign in action
-    dispatch(signin(email, password));
+    dispatch(register(username, email, password));
   };
 
   useEffect(() => {
@@ -47,7 +47,7 @@ export default function SigninScreen(props) {
             id="username"
             placeholder="Enter username"
             required
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => setUsername(e.target.value)}
           ></input>
         </div>
 

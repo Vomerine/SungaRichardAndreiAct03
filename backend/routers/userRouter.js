@@ -16,6 +16,41 @@ userRouter.get(
   })
 );
 
+
+userRouter.post(
+  '/register',
+  expressAsyncHandler(async (req, res) => {
+    await User.remove({});
+    
+    // Check if username exist
+    const user = await User.findOne({ name: req.body.username });
+    if (!user) {
+      // Data to be inserted in MongoDB
+      const userData = {
+        name: req.body.username,
+        email: req.body.email,
+        password: bcrypt.hashSync(req.body.password, 8),
+        isAdmin: false,
+      }
+
+      const newUser = await User.insertMany(userData);
+      const data = newUser[0];
+      // Send user info
+      res.send({ 
+        _id: data._id,
+        name: data.name,
+        email: data.email,
+        isAdmin: data.isAdmin,
+        token: generateToken(newUser), });
+      
+      return;
+    }
+    res.status(401).send({ message: 'Username already exists' });
+  })
+    
+);
+
+
 userRouter.post(
   '/signin',
   expressAsyncHandler(async (req, res) => {
@@ -35,7 +70,6 @@ userRouter.post(
     res.status(401).send({ message: 'Invalid email or password' });
   })
 );
-
 
 
 export default userRouter;
