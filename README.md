@@ -9,7 +9,8 @@ A simple e-commerce website using MERN stack from one of my college courses
 npm run start
 ```
 
-This will start the server at the localhost
+ This will start the server at the localhost
+
 3. After that, open a new terminal and install the dependecies using these commands:
 
 ```
