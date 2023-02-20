@@ -15,7 +15,7 @@ function App() {
   const { cartItems } = cart;
 
   // For user signin/signout
-  const userSignin = useSelector((state) => state.userSignin);
+  const userSignin = useSelector((state) => state.userSignin || state.userRegister);
   const { userInfo } = userSignin;
   const dispatch = useDispatch();
   const signoutHandler = () => {

@@ -20,8 +20,6 @@ userRouter.get(
 userRouter.post(
   '/register',
   expressAsyncHandler(async (req, res) => {
-    await User.remove({});
-    
     // Check if username exist
     const user = await User.findOne({ name: req.body.username });
     if (!user) {
@@ -33,14 +31,14 @@ userRouter.post(
         isAdmin: false,
       }
 
-      const newUser = await User.insertMany(userData);
-      const data = newUser[0];
+      const newUser = await new User(userData).save();
+
       // Send user info
       res.send({ 
-        _id: data._id,
-        name: data.name,
-        email: data.email,
-        isAdmin: data.isAdmin,
+        _id: newUser._id,
+        name: newUser.name,
+        email: newUser.email,
+        isAdmin: newUser.isAdmin,
         token: generateToken(newUser), });
       
       return;
