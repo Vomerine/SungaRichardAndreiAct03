@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import MessageBox from '../components/MessageBox';
 
 export default function CartScreen(props) {
+  const user = JSON.parse(localStorage.getItem('userInfo'))
   const productId = props.match.params.id;
   const qty = props.location.search
     ? Number(props.location.search.split('=')[1])
@@ -15,9 +16,9 @@ export default function CartScreen(props) {
   const dispatch = useDispatch();
   useEffect(() => {
       if (productId) {
-        dispatch(addToCart(productId, qty));
+        dispatch(addToCart(user._id, productId, qty));
       }
-  }, [dispatch, productId, qty]);
+  }, [dispatch, user._id, productId, qty]);
 
   const removeFromCartHandler = (id) => {
     // delete action

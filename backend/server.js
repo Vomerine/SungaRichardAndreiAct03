@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import userRouter from './routers/userRouter.js';
 import productRouter from './routers/productRouter.js';
+import cartRouter from './routers/cartRouter.js';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -18,6 +19,7 @@ mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost/marketplace', {
 
 app.use('/api/users', userRouter);
 app.use('/api/products', productRouter);
+app.use('/api/cart', cartRouter);
 
 app.get('/', (req, res) => {
     res.send('Server is ready');

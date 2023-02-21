@@ -35,7 +35,7 @@ export const register = (username, email, password) => async (dispatch) => {
   dispatch({ type: USER_REGISTER_REQUEST, payload: { username, email, password } });
   try {
     const { data } = await Axios.post('/api/users/register', { username, email, password }); // ajax request to backend
-    dispatch({ type: USER_REGISTER_SUCCESS, payload: data });
+    dispatch({ type: USER_SIGNIN_SUCCESS, payload: data });
     localStorage.setItem('userInfo', JSON.stringify(data)); // set to browser storage (like session)
   } catch (error) {
     dispatch({
