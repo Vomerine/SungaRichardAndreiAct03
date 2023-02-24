@@ -5,6 +5,7 @@ import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import { useEffect, useState } from 'react';
 import { detailsProduct } from '../actions/productAction';
+import { addToCart } from '../actions/cartActions';
 
 export default function ProductScreen(props) {
     const dispatch = useDispatch();
@@ -18,7 +19,8 @@ export default function ProductScreen(props) {
     }, [dispatch, productId])
 
     const addToCartHandler = () => {
-        props.history.push(`/cart/${productId}?qty=${qty}`);
+        dispatch(addToCart(productId, qty));
+        props.history.push(`/cart/`);
     };
     
     return (
@@ -28,7 +30,7 @@ export default function ProductScreen(props) {
             : (<div>
                 <div className = "back">
                 <Link to = "/" className = "back">
-                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                    <i className="fa fa-arrow-left" aria-hidden="true"></i>
                     Back to homepage
                 </Link>
                 </div>

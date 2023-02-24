@@ -8,6 +8,26 @@ import { generateToken } from '../utils.js';
 
 const cartRouter = express.Router();
 
+cartRouter.post(
+  '/',
+  expressAsyncHandler(async (req, res) => {
+    const user = await User.findById(req.body.userId);
+    const cart = user.cart.toJSON();
+    const cartKeys = Object.keys(cart);
+
+    // Get user's products using the array of cartKeys
+    // .lean() converts it from Mongoose object to native js object
+    const cartItems = await Product.find({ '_id': { $in: cartKeys } }).lean();
+    
+    // Concatenate the product's quantity
+    Object.values(cartItems).forEach(value=> {
+      value['qty'] = cart[value['_id']];
+    });
+
+    res.send(cartItems);
+  })
+);
+
 cartRouter.get(
   '/seed',
   expressAsyncHandler(async (req, res) => {
@@ -24,8 +44,8 @@ cartRouter.post(
     const user = await User.findById(req.body.userId)
     const productId = req.body.productId;
     var qty = req.body.qty;
-
-    // Ckeck if product is already in user's cart and increment it
+    
+    // Check if product is already in user's cart and increment it
     let productQty = user.cart.get(productId);
     if(productQty) {
       qty += productQty;
@@ -34,21 +54,9 @@ cartRouter.post(
     else
       user.cart.set(productId, qty);
 
-    user.save()
-
-    const product = await Product.findById(productId);
-
-    // Send product info
-    res.send({ 
-      name: product.name,
-      image: product.image,
-      price: product.price,
-      countInStock: product.countInStock,
-      product: product._id,
-      qty, });
-    
-    return;
-    
+    if(user.save()){
+      return
+    }  
   })
     
 );

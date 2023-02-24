@@ -7,10 +7,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import SigninScreen from './screens/SigninScreen';
 import { signout } from './actions/userActions';
 import RegisterScreen from './screens/RegisterScreen';
+import { listCart } from './actions/cartActions';
+import { useEffect } from 'react';
 
 function App() {
 
-  //Adding of badge
+  // For cart badge
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
 
@@ -21,6 +23,11 @@ function App() {
   const signoutHandler = () => {
     dispatch(signout());
   };
+
+  // Get cart items
+  useEffect(() => {
+    dispatch(listCart());
+  }, [dispatch]);
   return (
     <BrowserRouter>
       <div className = "grid-container">
@@ -44,6 +51,7 @@ function App() {
                   </Link>
                   <ul className="dropdown-content">
                     <li>
+                      {/* TODO: Reload after signout */}
                       <Link to="#signout" onClick={signoutHandler}>
                         Sign Out
                       </Link>

@@ -1,11 +1,10 @@
 import React, { useEffect }  from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addToCart, removeFromCart } from '../actions/cartActions';
+import { listCart, addToCart, removeFromCart } from '../actions/cartActions';
 import { Link } from 'react-router-dom';
 import MessageBox from '../components/MessageBox';
 
 export default function CartScreen(props) {
-  const user = JSON.parse(localStorage.getItem('userInfo'))
   const productId = props.match.params.id;
   const qty = props.location.search
     ? Number(props.location.search.split('=')[1])
@@ -14,11 +13,16 @@ export default function CartScreen(props) {
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
   const dispatch = useDispatch();
+
+  useEffect(() => {
+   dispatch(listCart());
+  }, [dispatch]);
+
   useEffect(() => {
       if (productId) {
-        dispatch(addToCart(user._id, productId, qty));
+        dispatch(addToCart(productId, qty));
       }
-  }, [dispatch, user._id, productId, qty]);
+  }, [dispatch, productId, qty]);
 
   const removeFromCartHandler = (id) => {
     // delete action
@@ -49,7 +53,7 @@ export default function CartScreen(props) {
                 <li>Actions</li>
               </ul>
               {cartItems.map((item) => (
-                <li key={item.product}>
+                <li key={item._id}>
                   <div className="row">
                     <div>
                       <img
@@ -59,14 +63,15 @@ export default function CartScreen(props) {
                       ></img>
                     </div>
                     <div className="min-30">
-                      <Link to={`/product/${item.product}`}>{item.name}</Link> 
+                      <Link to={`/product/${item._id}`}>{item.name}</Link> 
                     </div>
                     <div>
                       <select
                         value={item.qty}
                         onChange={(e) =>
                           dispatch(
-                            addToCart(item.product, Number(e.target.value))
+                            // TODO: Change func to updateQty()
+                            addToCart(item._id, Number(e.target.value))
                           )
                         }
                       >
