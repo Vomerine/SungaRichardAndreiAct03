@@ -9,9 +9,11 @@ import {
 
 export const listCart = () => async(dispatch)=>{
   const user = JSON.parse(localStorage.getItem('userInfo'));
-  const userId = user._id;
+  var userId = 0
+  if (user) userId = user._id
+  console.log(userId)
   dispatch({ type: CART_LIST_REQUEST });
-
+ 
   try {
     const {data} = await Axios.post('/api/cart/', { userId });
     dispatch({ type:CART_LIST_SUCCESS, payload:data });

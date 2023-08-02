@@ -26,8 +26,9 @@ function App() {
 
   // Get cart items
   useEffect(() => {
-    dispatch(listCart());
-  }, [dispatch]);
+    if(userInfo) dispatch(listCart());
+  }, [dispatch, userInfo]);
+
   return (
     <BrowserRouter>
       <div className = "grid-container">
@@ -37,12 +38,15 @@ function App() {
             </div>
 
             <div>
-                <Link to="/cart">
-                <i className="fa fa-shopping-cart fa-lg" aria-hidden="true"></i>
-                {cartItems.length > 0 && (
+                {userInfo ? ( 
+                  <Link to="/cart">
+                  <i className="fa fa-shopping-cart fa-lg" aria-hidden="true"></i>
                   <span className="badge">{cartItems.length}</span>
+                  </Link>
+                ) : (
+                  <Link to="/signin">  <i className="fa fa-shopping-cart fa-lg" aria-hidden="true"></i> </Link>
                 )}
-                </Link>
+               
 
                 {userInfo ? (
                 <div className="dropdown">
@@ -51,8 +55,7 @@ function App() {
                   </Link>
                   <ul className="dropdown-content">
                     <li>
-                      {/* TODO: Reload after signout */}
-                      <Link to="#signout" onClick={signoutHandler}>
+                      <Link to="/" onClick={signoutHandler}>
                         Sign Out
                       </Link>
                     </li>
